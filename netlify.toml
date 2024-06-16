@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"  # Comando para construir tu proyecto
+  publish = "dist"           # Carpeta de tu proyecto que se publicará
+
+[[redirects]]                # Redireccionamiento de URLs
+  from = "/*"
+  to = "/Proyecto3/index.html"
+  status = 200
+
+[headers]                    # Configuración de encabezados HTTP
+  Access-Control-Allow-Origin = "*"
+  Cache-Control = "public, max-age=0, must-revalidate"
