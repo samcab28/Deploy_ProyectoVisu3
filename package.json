@@ -13,7 +13,7 @@
     "cliente",
     "servidor"
   ],
-  "author": "Tu Nombre",
+  "author": "Samir Cabrera",
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2"
