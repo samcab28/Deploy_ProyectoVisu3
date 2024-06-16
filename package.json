@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "build": "mkdir -p dist && cp -r * dist"
+    "build": "node server.js"
+
   },
   "keywords": [
     "node",
