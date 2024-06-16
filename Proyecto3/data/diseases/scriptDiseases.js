@@ -28,8 +28,7 @@ const width = window.innerWidth * 0.8;
 const height = window.innerHeight * 0.8; 
 const svg = d3.select('svg')
     .attr('width', width)
-    .attr('height', height)
-    .style('border', '1px solid black'); // Agregar borde negro
+    .attr('height', height);
 
 // Definir el comportamiento de zoom
 const zoom = d3.zoom()
@@ -57,7 +56,7 @@ function resetZoom() {
 function initializeSimulation() {
     if (!nodes || !links) return;
 
-    const linkElements = svg.append('g')
+    const linkElements = container.append('g')
         .selectAll('line')
         .data(links)
         .enter().append('line')
@@ -72,7 +71,7 @@ function initializeSimulation() {
         return node.attributes.size;
     }
 
-    const nodeElements = svg.append('g')
+    const nodeElements = container.append('g')
         .selectAll('circle')
         .data(nodes)
         .enter().append('circle')
@@ -80,7 +79,7 @@ function initializeSimulation() {
         .attr('fill', getNodeColor)
         .call(dragDrop);
 
-    const textElements = svg.append('g')
+    const textElements = container.append('g')
         .selectAll('text')
         .data(nodes)
         .text(node => node.attributes.label)
@@ -100,12 +99,12 @@ function initializeSimulation() {
         //informacion de los nodos
         const nodeInfo = document.getElementById('nodeInfo');
         nodeInfo.innerHTML = `
-            <h3>Node Information</h3>
+            <h3>Información del Nodo</h3>
             <p><strong>Nombre enfermedad:</strong> ${node.attributes.label}</p>
             <p><strong>Color:</strong> ${node.attributes.color}</p>
-            <p><strong>Size:</strong> ${node.attributes.size}</p>
-            <p><strong>Descripcion 1:</strong> ${node.attributes['0']}</p>
-            <p><strong>Descripcion 2:</strong> ${node.attributes['1']}</p>
+            <p><strong>Tamaño:</strong> ${node.attributes.size}</p>
+            <p><strong>Descripción 1:</strong> ${node.attributes['0']}</p>
+            <p><strong>Descripción 2:</strong> ${node.attributes['1']}</p>
             <p><strong>X:</strong> ${node.x}</p>
             <p><strong>Y:</strong> ${node.y}</p>
         `;
@@ -156,14 +155,12 @@ const dragDrop = d3.drag()
     })
     .on('end', (event, node) => {
         if (!event.active) simulation.alphaTarget(0);
-        node.fx = node.x;
-        node.fy = node.y;
+        node.fx = null;
+        node.fy = null;
     });
 
-// Función para actualizar el alphaDecay
+// Función para actualizar alphaDecay
 function updateAlphaDecay() {
-    const alphaDecayInput = document.getElementById('alphaDecay').value;
-    numAlphaDecay = alphaDecayInput;
-    simulation.alphaDecay(1 - Math.pow(0.001, 1 / numAlphaDecay));
-    simulation.alpha(1).restart(); // Reiniciar la simulación para aplicar los cambios
+    numAlphaDecay = document.getElementById('alphaDecay').value;
+    simulation.alphaDecay(1 - Math.pow(0.001, 1 / numAlphaDecay)).restart();
 }

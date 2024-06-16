@@ -3,25 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseases data</title>
+    <title>Dataset: Diseases</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        #controls {
+            margin: 20px;
+        }
+        #tooltip {
+            position: absolute;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid black;
+            pointer-events: none;
+        }
+        #nodeInfo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: white;
+            padding: 10px;
+            border: 1px solid black;
+            display: none;
+        }
+        svg {
+            border: 1px solid black;
+            background-color: white;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Grafica de diseases</h2>
-    <p>Zoom se hace con el mouse</p>
-    <p>AlphaDecay es la cantidad de tiempo en segundos que procesa la visualizacion, mayor tiempo -> mayor calidad</p>
-    <div id="tooltip" style="opacity:0;"></div>
-    <div>
+    <h2>Gráfica de dataset "Diseases"</h2>
+    <p>Usa el mouse para hacer zoom</p>
+    <p>Alpha Decay es el tiempo en segundos que la visualización se procesará, mayor tiempo → mayor calidad</p>
+    <div id="controls">
         <label for="alphaDecay">Alpha Decay: </label>
-        <input type="number" id="alphaDecay" name="alphaDecay" value="30" min="1" max="100">
-        <button onclick="updateAlphaDecay()">Update Alpha Decay</button>
-        <button onclick="resetZoom()">Reset Zoom</button>
+        <input type="number" id="alphaDecay" name="alphaDecay" value="3" min="1" max="100">
+        <button onclick="updateAlphaDecay()">Actualizar Alpha Decay</button>
+        <button onclick="resetZoom()">Reiniciar Zoom</button>
     </div>
-    <br>
-    <div id="nodeInfo" style="position:absolute; top:10px; right:10px; background-color:white; padding:10px; border:1px solid black; display:none;"></div>
+    <div id="tooltip" style="opacity:0;"></div>
+    <div id="nodeInfo"></div>
     <svg width="960" height="600"></svg>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="scriptDiseases.js"></script>
     <br>
-    <a href="/index.html">Regresar al menu</a>
+    <a href="/index.html" class="btn">Regresar al menú</a>
 </body>
 </html>
