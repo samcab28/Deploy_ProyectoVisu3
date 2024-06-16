@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eurosis data</title>
+</head>
+<body>
+    <h2>Grafica de eurosis</h2>
+    <h4>Para ver la informacion de un nodo, hacer click en el</h4>
+    <div id="tooltip" style="opacity:0; position:absolute; background-color:white; border:1px solid black; padding:5px;"></div>
+    <div>
+        <label for="alphaDecay">Alpha Decay: </label>
+        <input type="number" id="alphaDecay" name="alphaDecay" value="30" min="1" max="100">
+        <button onclick="updateAlphaDecay()">Update Alpha Decay</button>
+    </div>
+    <div id="nodeInfo" style="position:absolute; top:10px; right:10px; background-color:white; padding:10px; border:1px solid black; display:none;"></div>
+    <br>
+    <svg width="960" height="600"></svg>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="scritpEurosis.js"></script>
+    <br>
+    <a href="/Proyecto3/index.html">Regresar al menu</a>
+</body>
+</html>
