@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Proyecto cliente-servidor con Node.js y Express",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "build": "node server.js"
-
-  },
+"scripts": {
+  "start": "node server.js",
+  "build": "rimraf dist && mkdir dist && xcopy /s Proyecto3 dist && echo Build completed successfully"
+},
   "keywords": [
     "node",
     "express",
@@ -18,5 +17,8 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "rimraf": "^5.0.7"
   }
 }
