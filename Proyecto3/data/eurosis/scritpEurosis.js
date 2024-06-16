@@ -31,6 +31,28 @@ const svg = d3.select('svg')
     .attr('height', height)
     .style('border', '1px solid black'); // Agregar borde negro
 
+// Definir el comportamiento de zoom
+const zoom = d3.zoom()
+    .scaleExtent([0.5, 5]) // Configurar los límites de zoom
+    .on('zoom', zoomed);
+
+svg.call(zoom);
+
+const container = svg.append('g'); // Contenedor para los elementos de la visualización
+
+function zoomed(event) {
+    container.attr('transform', event.transform);
+}
+
+// Función para resetear el zoom
+function resetZoom() {
+    svg.transition().duration(750).call(
+        zoom.transform,
+        d3.zoomIdentity,
+        d3.zoomTransform(svg.node()).invert([width / 2, height / 2])
+    );
+}
+
 // Función de inicialización de la simulación
 function initializeSimulation() {
       if (!nodes || !links) return;

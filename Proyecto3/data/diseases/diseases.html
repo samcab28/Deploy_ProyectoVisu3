@@ -7,11 +7,14 @@
 </head>
 <body>
     <h2>Grafica de diseases</h2>
+    <p>Zoom se hace con el mouse</p>
+    <p>AlphaDecay es la cantidad de tiempo en segundos que procesa la visualizacion, mayor tiempo -> mayor calidad</p>
     <div id="tooltip" style="opacity:0;"></div>
     <div>
         <label for="alphaDecay">Alpha Decay: </label>
         <input type="number" id="alphaDecay" name="alphaDecay" value="30" min="1" max="100">
         <button onclick="updateAlphaDecay()">Update Alpha Decay</button>
+        <button onclick="resetZoom()">Reset Zoom</button>
     </div>
     <br>
     <div id="nodeInfo" style="position:absolute; top:10px; right:10px; background-color:white; padding:10px; border:1px solid black; display:none;"></div>
