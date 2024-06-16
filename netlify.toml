@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"  # Comando para construir tu proyecto
-  publish = "dist"           # Carpeta de tu proyecto que se publicará
+  publish = "Proyecto3"           # Carpeta de tu proyecto que se publicará
 
 [[redirects]]
   from = "/*"
