@@ -4,7 +4,7 @@
 
 [[redirects]]                # Redireccionamiento de URLs
   from = "/*"
-  to = "/dist/index.html"  # Ruta relativa al archivo index.html
+  to = "/Proyecto3/index.html"  # Ruta relativa al archivo index.html
   status = 200
 
 [headers]                    # Configuración de encabezados HTTP
